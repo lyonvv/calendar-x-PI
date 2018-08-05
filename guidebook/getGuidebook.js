@@ -21,7 +21,8 @@ var getGuidebook  = (assessmentId, callback) => {
         refPatternName: body.referencePattern.name,
         rePatternDescription: body.referencePattern.description,
         traits: body.referencePattern.traits,
-        challenges: body.referencePattern.challenges
+        challenges: body.referencePattern.challenges,
+        textBody: `This person is a ${body.referencePattern.name}.  They will demonstrate ${body.referencePattern.traits[0]}. However, they ${body.referencePattern.challenges[0]}.`
 
 
       });

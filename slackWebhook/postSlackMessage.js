@@ -9,7 +9,7 @@ var postSlackMessage = (message, callback) => {
   }
 
   var options = {
-    url: 'https://hooks.slack.com/services/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',
+    url: 'https://hooks.slack.com/services/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',
     method: 'POST',
     headers: headers,
     body: JSON.stringify({'text': message})
