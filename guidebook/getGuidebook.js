@@ -23,6 +23,7 @@ var getGuidebook  = (assessmentId, callback) => {
         traits: body.referencePattern.traits,
         challenges: body.referencePattern.challenges
 
+
       });
     } else {
       callback('Error searching/Too many results');

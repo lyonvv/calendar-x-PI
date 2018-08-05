@@ -17,7 +17,9 @@ var getPIPerson = (email, callback) => {
   request(options, (error, response, body) => {
     if(body.totalSearchResults = 1) {
 
-      callback(undefined, body.peopleAndJobsSearchResult[0].assessmentInformation.behavioralAssessmentInformation.originalId);
+      callback(undefined, {
+        name: `${body.peopleAndJobsSearchResult[0].firstName} ${body.peopleAndJobsSearchResult[0].lastName}`,
+        originalId: body.peopleAndJobsSearchResult[0].assessmentInformation.behavioralAssessmentInformation.originalId});
     } else {
       callback('Error searching/Too many results');
     }
