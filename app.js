@@ -8,7 +8,7 @@ PIPeople.getPIPerson('svalentin@predictiveindex.com', (errorMessage, results) =>
   if(errorMessage) {
       console.log(errorMessage);
     } else {
-      guidebook.getGuidebook(results.originalId, results.name, (errorMessage, results) =>{
+      guidebook.getGuidebook(results.originalId, (errorMessage, results) =>{
         if(errorMessage) {
             console.log(errorMessage);
           } else {
