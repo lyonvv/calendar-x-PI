@@ -21,6 +21,13 @@ PIPeople.getPIPerson(argv.email, (errorMessage, results) =>{
   if(errorMessage) {
       console.log(errorMessage);
     } else {
+      slack.postSlackMessage(`Please welcome ${results.name} to the team!`, (errorMessage, results) => {
+        if(errorMessage) {
+          console.log(errorMessage);
+        } else {
+          console.log(results);
+        }
+      });
       guidebook.getGuidebook(results.originalId, (errorMessage, results) =>{
         if(errorMessage) {
             console.log(errorMessage);

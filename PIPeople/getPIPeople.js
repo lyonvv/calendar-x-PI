@@ -7,7 +7,7 @@ var getPIPerson = (email, callback) => {
   }
 
   var options = {
-    url: `https://pi.predictiveindex.com/api/v2/companies/dda0ef04-4309-42c3-8acb-2e90e622d390/peopleandjobs?$skip=0&$top=50&$search=${email}&searchfields=peopleAndJobsSearchResult/assessmentUser/email`,
+    url: `https://pi.predictiveindex.com/api/v2/companies/dda0ef04-4309-42c3-8acb-2e90e622d390/peopleandjobs?$skip=0&$top=50&$search=${email}&searchfields=peopleAndJobsSearchResult/sortName,peopleAndJobsSearchResult/assessmentUser/email,peopleAndJobsSearchResult/assessmentUser/lastName,peopleAndJobsSearchResult/assessmentUser/firstName`,
     method: 'GET',
     headers: headers,
     json: true
@@ -18,7 +18,7 @@ var getPIPerson = (email, callback) => {
     if(body.totalSearchResults = 1) {
 
       callback(undefined, {
-        name: `${body.peopleAndJobsSearchResult[0].firstName} ${body.peopleAndJobsSearchResult[0].lastName}`,
+        name: `${body.peopleAndJobsSearchResult[0].assessmentUser.firstName} ${body.peopleAndJobsSearchResult[0].assessmentUser.lastName}`,
         originalId: body.peopleAndJobsSearchResult[0].assessmentInformation.behavioralAssessmentInformation.originalId});
     } else {
       callback('Error searching/Too many results');
